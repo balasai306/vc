@@ -1,0 +1,31 @@
+
+
+
+body{
+    background-color: aliceblue;
+    
+
+}
+#form{
+  margin: 00% 20% 10%  20%;
+   border: solid black 5px;
+  padding: 20px;
+   width: 60%;
+}
+label{
+    font-size: 25px;
+}
+
+#name,#uname,#pass,#cpass,#Address{
+    width: 100%;
+    border: solid black 2px;
+}
+#Profession{
+    width: 50%;
+}
+
+button{
+    text-align: center;
+    width: 50%;
+
+}

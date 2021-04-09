@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="show();">thisbutton</button>
+    <button onclick="showjson();">contentbutton</button>
+    <p id="text"></p>
+    <div id = "apitext"></div>
+
+<script>
+    function show(){
+        let xhr= new XMLHttpRequest();
+        xhr.open("GET" ,"textfile.txt",true);
+        xhr.onload=function(){
+            if (xhr.status==200){
+                document.getElementById("text").innerHTML=xhr.responseText;
+
+            }
+        }
+        xhr.send();
+
+    }
+</script>
+<script>
+    function showjson(){
+        let xhr= new XMLHttpRequest();
+        xhr.open("GET" ,"https://api.github.com/users",true);
+        xhr.onload=function(){
+            if (xhr.status==200){
+                let content="";
+                let data=JSON.parse(xhr.responseText);
+              for (let d in data) {
+                  content+= 
+                  `<div>
+                    <img src="${data[d].avatar_url}" height="50" width="50"   >
+                            <h5> name = ${data[d].login}</h5>
+
+                    </div>`
+                  
+              }
+              document.getElementById("apitext").innerHTML=content;
+
+            }
+        }
+        xhr.send();
+
+    }
+</script>
+
+
+
+
+</body>
+</html>
